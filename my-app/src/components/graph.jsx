@@ -17,15 +17,20 @@ class graph extends React.Component {
           <ResponsiveLine
             data={this.state.data}
             margin={{ top: 50, right: 140, bottom: 50, left: 100 }}
-            xScale={{ type: "point" }}
+            xScale={{
+              type: "time",
+              format: "%Y-%m-%d",
+              useUTC: false,
+              precision: "day",
+            }}
             yScale={{
               type: "linear",
               min: "auto",
               max: "auto",
-              stacked: true,
+              stacked: false,
               reverse: false,
             }}
-            curve="basis"
+            curve="natural"
             theme={{
               textColor: "#ebebeb",
               fontSize: 13,
@@ -81,15 +86,7 @@ class graph extends React.Component {
             axisTop={null}
             axisRight={null}
             axisBottom={null}
-            axisLeft={{
-              orient: "left",
-              tickSize: 0,
-              tickPadding: 7,
-              tickRotation: 0,
-              legend: "case/hit count",
-              legendOffset: -70,
-              legendPosition: "middle",
-            }}
+            axisLeft={null}
             enableGridX={false}
             colors={{ scheme: "accent" }}
             enablePoints={false}
@@ -98,8 +95,8 @@ class graph extends React.Component {
             pointBorderWidth={2}
             pointBorderColor={{ from: "serieColor" }}
             pointLabelYOffset={-12}
-            enableSlices="x"
             enableCrosshair={false}
+            useMesh={true}
             legends={[
               {
                 anchor: "bottom-right",
@@ -166,9 +163,11 @@ class graph extends React.Component {
         covidROI = covidROI.map((d) => {
           return d.y;
         });
-        let max = Math.max(...covidROI);
-        let min = Math.min(...covidROI);
-        let avg = (max + min) / 2;
+        let sum = 0;
+        for (let i = 0; i < covidROI.length; i++) {
+          sum += covidROI[i];
+        }
+        let avg = sum / covidROI.length;
         let trendDataMin = Math.min(...trendData);
         console.log(trendDataMin);
         for (let i = 0; i < trendData.length; i++) {
@@ -183,6 +182,7 @@ class graph extends React.Component {
           data: data,
         });
         this.setState(currentState);
+        console.log(currentState);
       });
   };
 
