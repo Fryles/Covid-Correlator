@@ -23,6 +23,7 @@ class graph extends React.Component {
               useUTC: false,
               precision: "day",
             }}
+            xFormat="time:%Y-%m-%d"
             yScale={{
               type: "linear",
               min: "auto",
@@ -30,7 +31,7 @@ class graph extends React.Component {
               stacked: false,
               reverse: false,
             }}
-            curve="natural"
+            curve="basis"
             theme={{
               textColor: "#ebebeb",
               fontSize: 13,
@@ -85,7 +86,12 @@ class graph extends React.Component {
             }}
             axisTop={null}
             axisRight={null}
-            axisBottom={null}
+            axisBottom={{
+              format: "%b",
+              tickValues: "every 1 month",
+              legend: "",
+              legendOffset: -12,
+            }}
             axisLeft={null}
             enableGridX={false}
             colors={{ scheme: "accent" }}
@@ -155,27 +161,27 @@ class graph extends React.Component {
         for (let i = 0; i < trendDates.length; i++) {
           let d = new Date(trendDates[i]);
           fixedTrendDates.push(
-            d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()
+            d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate()
           );
         }
-        console.log(fixedTrendDates);
-
         covidROI = covidROI.map((d) => {
           return d.y;
         });
-        let sum = 0;
-        for (let i = 0; i < covidROI.length; i++) {
-          sum += covidROI[i];
-        }
-        let avg = sum / covidROI.length;
-        let trendDataMin = Math.min(...trendData);
-        console.log(trendDataMin);
+
+        //normalize data to range of covidROI
+
+        let min = Math.min(...covidROI);
+        let max = Math.max(...covidROI);
+        let dataMax = Math.max(...trendData);
+        let dataMin = Math.min(...trendData);
+        let normalizationFactor =
+          ((dataMin !== 0 ? min / dataMin : 0) + max / dataMax) / 2;
+
         for (let i = 0; i < trendData.length; i++) {
-          let normalized = (trendData[i] / trendDataMin) * avg;
-          data[i].y = normalized;
+          let normalized = trendData[i] * normalizationFactor;
+          data[i].y = parseInt(normalized);
           data[i].x = fixedTrendDates[i];
         }
-        console.log(data);
         let currentState = this.state.data;
         currentState.push({
           id: term,
@@ -187,7 +193,7 @@ class graph extends React.Component {
   };
 
   componentDidMount() {
-    let ra = 5;
+    let ra = 4;
     fetch("https://pomber.github.io/covid19/timeseries.json")
       .then((result) => {
         return result.json();
@@ -211,7 +217,7 @@ class graph extends React.Component {
         let avgerageRoi = rollingAverage(derivative, ra);
 
         //zip data together and skip every other value for smoothing
-        for (var i = 0; i < avgerageRoi.length; i += 2) {
+        for (var i = 0; i < avgerageRoi.length; i += 5) {
           zippedData.push({
             x: data[i + ra].date,
             y: avgerageRoi[i],
