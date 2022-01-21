@@ -2,6 +2,8 @@ import React from "react";
 import { ResponsiveLine } from "@nivo/line";
 import InputArea from "./inputArea";
 
+//TODO: add mobile support for grpah legend rearrangement
+
 class graph extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,7 @@ class graph extends React.Component {
         <div className="graph">
           <ResponsiveLine
             data={this.state.data}
-            margin={{ top: 50, right: 140, bottom: 50, left: 100 }}
+            margin={{ top: 30, bottom: 80, left: 50, right: 140 }}
             xScale={{
               type: "time",
               format: "%Y-%m-%d",
@@ -31,7 +33,7 @@ class graph extends React.Component {
               stacked: false,
               reverse: false,
             }}
-            curve="basis"
+            curve="cardinal"
             theme={{
               textColor: "#ebebeb",
               fontSize: 13,
@@ -94,7 +96,7 @@ class graph extends React.Component {
             }}
             axisLeft={null}
             enableGridX={false}
-            colors={{ scheme: "accent" }}
+            colors={{ scheme: "set1" }}
             enablePoints={false}
             pointSize={10}
             pointColor={{ theme: "background" }}
@@ -108,8 +110,8 @@ class graph extends React.Component {
                 anchor: "bottom-right",
                 direction: "column",
                 justify: false,
-                translateX: 100,
-                translateY: 0,
+                translateX: 90,
+                translateY: 10,
                 itemsSpacing: 0,
                 itemDirection: "left-to-right",
                 itemWidth: 80,

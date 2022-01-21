@@ -24,7 +24,6 @@ app.post("/api", jsonParser, (req, res) => {
     .then(function (results) {
       var json = JSON.parse(results);
       let interestingData = json.default.timelineData;
-      console.log(interestingData);
       interestingData.forEach((element) => {
         if (element.hasData[0]) {
           zippedData.push({
