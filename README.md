@@ -36,11 +36,10 @@ npm install
 cd ..
 ```
 
-Depending on where you plan to run the Node server, you will have to change the proxy respectively at the /api endpoint
-I reccomend just putting the server on localhost:8080 or similar.
+Depending on where you plan to run the Node server, you will have to change the API endpoint in the graph.jsx component
 
 ```sh
-vim CC-ReactSite/src/setupProxy.js
+vim CC-ReactSite/src/components/graph.jsx
 ```
 
 Finally start the Node server
