@@ -12,7 +12,7 @@ class main extends React.Component {
 					<HashRouter>
 						<Navbar />
 						<Routes>
-							<Route path="/" element={<Graph />} />
+							<Route path="/covid-correlator" element={<Graph />} />
 							<Route path="/credits" element={<Credits />} />
 						</Routes>
 					</HashRouter>
