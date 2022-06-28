@@ -4,13 +4,13 @@ import { NavLink } from "react-router-dom";
 function navbar() {
 	return (
 		<nav className="navbar navbar-expand navbar-dark bg-dark">
-			<NavLink to="/covid-correlator" className="navbar-brand m-2">
+			<NavLink to="/" className="navbar-brand m-2">
 				Covid Correlator
 			</NavLink>
 			<div className="collapse navbar-collapse" id="navbarsSupportedContent">
 				<ul className="navbar-nav">
 					<li className="nav-item">
-						<NavLink className="nav-link" to="/covid-correlator">
+						<NavLink className="nav-link" to="/">
 							Home
 						</NavLink>
 					</li>
