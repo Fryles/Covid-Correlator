@@ -4,8 +4,8 @@ module.exports = function (app) {
 	app.use(
 		"/api",
 		createProxyMiddleware({
-			target: "https://covid-correlator.herokuapp.com/",
-			changeOrigin: true,
+			target: "https://covid-correlator.herokuapp.com",
+			changeOrigin: false,
 		})
 	);
 };
