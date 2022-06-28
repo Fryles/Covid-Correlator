@@ -6,7 +6,7 @@ const googleTrends = require("google-trends-api");
 const cors = require("cors");
 app.use(
 	cors({
-		origin: "https://fryles.github.io/",
+		origin: "https://fryles.github.io",
 	})
 );
 var jsonParser = bodyParser.json();
