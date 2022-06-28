@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Covid-Correlator/static/css/main.058351b7.css",
-    "main.js": "/Covid-Correlator/static/js/main.d1b63234.js",
+    "main.js": "/Covid-Correlator/static/js/main.c841cc29.js",
     "index.html": "/Covid-Correlator/index.html",
     "main.058351b7.css.map": "/Covid-Correlator/static/css/main.058351b7.css.map",
-    "main.d1b63234.js.map": "/Covid-Correlator/static/js/main.d1b63234.js.map"
+    "main.c841cc29.js.map": "/Covid-Correlator/static/js/main.c841cc29.js.map"
   },
   "entrypoints": [
     "static/css/main.058351b7.css",
-    "static/js/main.d1b63234.js"
+    "static/js/main.c841cc29.js"
   ]
 }
