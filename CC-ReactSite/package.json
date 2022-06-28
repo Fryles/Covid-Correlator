@@ -1,6 +1,7 @@
 {
 	"name": "CC-ReactSite",
 	"version": "0.1.0",
+	"homepage": "https://fryles.github.io/Covid-Correlator",
 	"private": true,
 	"dependencies": {
 		"@nivo/core": "^0.79.0",
@@ -21,6 +22,9 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
+
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
@@ -47,5 +51,8 @@
 	"description": "",
 	"main": "index.js",
 	"author": "",
-	"license": "ISC"
+	"license": "ISC",
+	"devDependencies": {
+		"gh-pages": "^4.0.0"
+	}
 }
