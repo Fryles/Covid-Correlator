@@ -8,7 +8,7 @@
   <p align="center">
     A React web-app built to compare the current COVID-19 rate of infection to Google Trends data for anything you can think of!
     <br />
-    <a href="https://github.com/fryles/covid-correlator">View Live Demo</a>
+    <a href="https://fryles.github.io/Covid-Correlator/">View Live Demo</a>
 |
     <a href="https://github.com/fryles/covid-correlator/issues">Report Bug or Request Feature</a>
 
@@ -19,7 +19,7 @@
 
 ### Usage
 
-Open up the live demo <a href="https://github.com/fryles/covid-correlator">here</a> and compare terms such as 'masks' or 'omicron' to demonstrate a strong correlation, other terms such as 'flights' or 'travel' may show partial correlation as well. Feel free to use any terms you want, and the web-app will automatically fit its curve to the graph.
+Open up the live demo <a href="https://fryles.github.io/Covid-Correlator/">here</a> and compare terms such as 'masks' or 'omicron' to demonstrate a strong correlation, other terms such as 'flights' or 'travel' may show partial correlation as well. Feel free to use any terms you want, and the web-app will automatically fit its curve to the graph.
 
 ### Deploying Yourself
 
