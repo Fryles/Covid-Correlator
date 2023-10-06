@@ -17,7 +17,7 @@
 
 ### Usage
 
-Open up the live demo <a href="https://fryles.github.io/Covid-Correlator/">here</a> and compare terms such as 'masks' or 'omicron' to demonstrate a strong correlation, other terms such as 'flights' or 'travel' may show partial correlation as well. Feel free to use any terms you want, and the web-app will automatically fit its curve to the graph.
+Follow the instructions below and compare terms such as 'masks' or 'omicron' to demonstrate a strong correlation, other terms such as 'flights' or 'travel' may show partial correlation as well. Feel free to use any terms you want, and the web-app will automatically fit its curve to the graph.
 
 ### Deploying Yourself
 
